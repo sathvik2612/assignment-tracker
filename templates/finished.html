@@ -1,0 +1,15 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h3>Finished Assignments</h3>
+{% for a in assignments %}
+<div class="card mb-3">
+  <div class="card-body">
+    <h5>{{ a.title }}</h5>
+    <p><strong>Finished at:</strong> {{ a.finished_at }}</p>
+  </div>
+</div>
+{% else %}
+<p>No finished assignments.</p>
+{% endfor %}
+{% endblock %}

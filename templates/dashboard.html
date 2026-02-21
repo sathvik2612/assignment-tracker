@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h3>Active Assignments</h3>
+<a class="btn btn-primary mb-3" href="/assignment/new">+ New</a>
+{% for a in assignments %}
+<div class="card mb-3">
+  <div class="card-body">
+    <h5>{{ a.title }}</h5>
+    <p>{{ a.description }}</p>
+    <p><strong>Deadline:</strong> {{ a.deadline }}</p>
+    <p><strong>Estimated Hours:</strong> {{ a.estimated_hours }}</p>
+    <form method="post" action="/assignment/{{ a.id }}/finish">
+      <button class="btn btn-success btn-sm">Mark Finished</button>
+    </form>
+  </div>
+</div>
+{% else %}
+<p>No assignments yet.</p>
+{% endfor %}
+{% endblock %}
